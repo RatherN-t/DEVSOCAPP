@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Control vs Chaos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .control, .chaos {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .control {
+      background-color: #f7f7f7;
+      color: #111;
+      border-right: 2px solid #ccc;
+    }
+
+    .control h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 120px);
+      gap: 1rem;
+    }
+
+    .grid div {
+      border: 1px solid #999;
+      padding: 0.8rem;
+      text-align: center;
+      background-color: white;
+      font-weight: bold;
+    }
+
+    .chaos {
+      background-color: #000;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chaos h1 {
+      font-size: 2.5rem;
+      z-index: 2;
+    }
+
+    .floating {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ff69b4;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      animation: float 5s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+      }
+      100% {
+        transform: translateY(0) rotate(-10deg);
+      }
+    }
+
+    .floating:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
+    .floating:nth-child(2) { top: 50%; left: 10%; animation-delay: 1s; }
+    .floating:nth-child(3) { top: 70%; left: 50%; animation-delay: 2s; }
+    .floating:nth-child(4) { top: 30%; left: 70%; animation-delay: 3s; }
+    .floating:nth-child(5) { top: 60%; left: 80%; animation-delay: 4s; }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .control, .chaos {
+        border-right: none;
+        border-bottom: 2px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- CONTROL SIDE -->
+    <div class="control">
+      <h1>Control</h1>
+      <div class="grid">
+        <div>HTML</div>
+        <div>CSS</div>
+        <div>Python</div>
+        <div>Git</div>
+      </div>
+      <p style="margin-top: 2rem; max-width: 400px; text-align: center;">
+        <!-- Insert structured intro here -->
+        Organised. Focused. Planner. Here’s the logical side of me.
+      </p>
+    </div>
+
+    <!-- CHAOS SIDE -->
+    <div class="chaos">
+      <h1>Chaos</h1>
+      <p style="z-index:2; margin-top: 1rem; max-width: 400px; text-align: center;">
+        <!-- Fill this with your About Me content -->
+        The spontaneous, unpredictable, creative storm that balances the calm.
+      </p>
+      <div class="floating">Improv Theater</div>
+      <div class="floating">3am Ideas</div>
+      <div class="floating">Unfinished Projects</div>
+      <div class="floating">Scribbles</div>
+      <div class="floating">Memes & Mayhem</div>
+    </div>
+  </div>
+</body>
+</html>
