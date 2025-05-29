@@ -1,98 +1,169 @@
+/* Base Styles */
 body {
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-h1 {
+    background-color: #fff;
     color: #37352f;
-    font-weight: 700;
-    margin-bottom: 10px;
+    display: flex;
+    min-height: 100vh;
 }
 
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+/* Notion Container */
+.notion-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.notion-sidebar {
+    width: 240px;
+    background-color: #f7f6f3;
+    border-right: 1px solid #e1e1e1;
+    padding: 12px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.notion-sidebar-header h1 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 5px 0 15px;
+    color: #37352f;
+}
+
+.notion-sidebar-section {
+    margin-bottom: 20px;
+}
+
+.notion-sidebar-section h2 {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #5a5a5a;
+    margin: 0 0 8px 0;
+}
+
+.notion-sidebar-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notion-sidebar-section li {
+    padding: 6px 8px;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.notion-sidebar-section li:hover {
+    background-color: #f0efeb;
+}
+
+/* Content Area */
+.notion-content {
+    flex: 1;
+    margin-left: 240px;
+    padding: 40px;
+    background-color: white;
+}
+
+.notion-header {
+    margin-bottom: 40px;
+}
+
+.notion-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.notion-header p {
+    font-size: 16px;
+    color: #5a5a5a;
+    margin: 0;
+}
+
+/* Opposites Layout */
+.opposites-container {
+    display: flex;
     gap: 30px;
 }
 
-.column {
-    background-color: white;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.opposite-column {
+    flex: 1;
 }
 
-.procrastinator {
-    border-left: 5px solid #ff6b6b;
+.procrastinator h2 {
+    color: #ff6b6b;
 }
 
-.overachiever {
-    border-left: 5px solid #51cf66;
+.overachiever h2 {
+    color: #51cf66;
 }
 
-h2 {
-    font-size: 1.5rem;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #37352f;
-}
-
-h3 {
-    font-size: 1.2rem;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    color: #37352f;
-}
-
-.section {
-    margin-bottom: 30px;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    color: #666;
-}
-
-/* Notion-like styling */
-body {
+/* Notion Blocks */
+.notion-block {
+    margin-bottom: 24px;
+    padding: 16px;
     background-color: #f7f6f3;
+    border-radius: 4px;
 }
 
-.column {
-    background-color: white;
-    border-radius: 3px;
-    border: 1px solid #e1e1e1;
-}
-
-h1, h2, h3 {
+.notion-block h3 {
+    font-size: 16px;
     font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.notion-block p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+}
+
+.notion-block ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.notion-block li {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .notion-sidebar {
+        width: 180px;
+    }
+    
+    .notion-content {
+        margin-left: 180px;
+        padding: 20px;
+    }
+    
+    .opposites-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .notion-container {
+        flex-direction: column;
+    }
+    
+    .notion-sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+    
+    .notion-content {
+        margin-left: 0;
+    }
 }
