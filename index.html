@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yash's Opposite Worlds</title>
+  <title>Yash's Duality</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -13,6 +13,7 @@
       color: #333;
       display: flex;
       min-height: 100vh;
+      overflow: hidden;
     }
 
     /* Notion Sidebar */
@@ -197,6 +198,40 @@
       background-color: #006a53;
     }
 
+    /* Explanation screen */
+    #explanationScreen {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9998;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+
+    #explanationContent {
+      max-width: 600px;
+    }
+
+    #continueBtn {
+      margin-top: 30px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #continueBtn:hover {
+      background-color: #e05555;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .notion-sidebar {
@@ -224,6 +259,10 @@
       .container {
         margin-left: 0;
       }
+      
+      #explanationContent {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -231,34 +270,45 @@
   <!-- Popup Modal -->
   <div id="welcomeModal">
     <div id="welcomeContent">
-      <h2>Welcome to Yash's Opposite Worlds!</h2>
-      <p>This site explores my two opposite sides: the procrastinator who leaves everything to the last minute, and the overachiever who builds traffic-solving robots before breakfast.</p>
-      <button id="enterBtn">Enter My Brain</button>
+      <h2>The Paradox of Yash</h2>
+      <p>How can someone both forget deadlines AND build award-winning robotics projects? Let's explore my dual nature...</p>
+      <button id="enterBtn">Reveal My Opposite Selves</button>
+    </div>
+  </div>
+
+  <!-- Explanation Screen -->
+  <div id="explanationScreen">
+    <div id="explanationContent">
+      <h2>Why "Opposites Attract" Perfectly Captures Me</h2>
+      <p>I'm the living embodiment of duality - the procrastinator who starts assignments at 11:59pm, and the overachiever who taught robotics at 15.</p>
+      <p>This isn't inconsistency - it's dynamic balance. My last-minute panic fuels hyperfocus that builds traffic-solving LEGO robots. My chaotic sticky notes coexist with color-coded Olympic training schedules.</p>
+      <p>These opposites don't cancel out - they synergize. The same brain that forgets deadlines for weeks can suddenly produce 92-grade group projects (<span class="highlight">true story</span>). The scattered creative is also the analytical problem-solver.</p>
+      <button id="continueBtn">Enter My Dual Reality</button>
     </div>
   </div>
 
   <!-- Notion Sidebar -->
   <div class="notion-sidebar">
     <div class="notion-sidebar-header">
-      <h1>Yash's Portfolio</h1>
+      <h1>Yash's Duality</h1>
     </div>
     <div class="notion-sidebar-content">
       <div class="notion-sidebar-section">
-        <h2>Superpowers</h2>
+        <h2>Chaos & Order</h2>
         <ul>
-          <li onclick="showContent('robotics')">Robotics Wizardry</li>
-          <li onclick="showContent('swimming')">Olympic-Level Swimming</li>
-          <li onclick="showContent('comp1531')">Surviving Group Projects</li>
-          <li onclick="showContent('animals')">Dog Whisperer Mode</li>
+          <li onclick="showContent('procrastination')">Last-Minute Genius</li>
+          <li onclick="showContent('robotics')">Precision Robotics</li>
+          <li onclick="showContent('swimming')">Disciplined Athlete</li>
+          <li onclick="showContent('1531')">Group Project Survivor</li>
         </ul>
       </div>
       <div class="notion-sidebar-section">
-        <h2>Achievements</h2>
+        <h2>Creative & Analytical</h2>
         <ul>
-          <li onclick="showContent('nias')">NIAS Research Program</li>
-          <li onclick="showContent('wro')">World Robotics Olympiad</li>
-          <li onclick="showContent('kumon')">Math Superhuman</li>
-          <li onclick="showContent('gavel')">Public Speaking Champ</li>
+          <li onclick="showContent('nias')">Research Innovator</li>
+          <li onclick="showContent('wro')">Competitive Coder</li>
+          <li onclick="showContent('animals')">Compassionate Volunteer</li>
+          <li onclick="showContent('kumon')">Math Strategist</li>
         </ul>
       </div>
     </div>
@@ -269,76 +319,94 @@
     <!-- Procrastinator Side -->
     <div class="column left">
       <div class="section">
-        <h1>About Procrastinator Yash</h1>
-        <p>I'm the version that waits until 11:59 PM to start assignments, then discovers the submission portal closed at 11:55. My browser has 47 tabs open, all "important" things I'll get to eventually.</p>
-        <div class="sticky-note">TODO: Update this bio... later</div>
+        <h1>Chaotic Yash</h1>
+        <p>The version that rediscovers deadlines when the submission portal closes. My workspace looks like a tornado hit a stationery store, yet somehow produces gold at the 11th hour.</p>
+        <div class="sticky-note">TODO: Explain how this works... tomorrow</div>
       </div>
       <div class="section">
-        <h1>Hobbies / Interests</h1>
+        <h1>Creative Process</h1>
         <ul>
-          <li>Starting Coursera courses and stopping after Week 1</li>
-          <li>Rewriting my to-do lists instead of doing the tasks</li>
-          <li>"Researching productivity methods" (aka watching YouTube)</li>
+          <li>47 browser tabs open "for research"</li>
+          <li>Works best when panic sets in</li>
+          <li>Invents new curse words when code fails at 2AM</li>
         </ul>
-        <div class="banner">COMP1531 Due: Yesterday</div>
+        <div class="banner">COMP1531 Started: 11:59PM</div>
       </div>
       <div class="section">
-        <h1>Projects</h1>
+        <h1>Secret Weapons</h1>
         <ul>
-          <li>Half-built portfolio website (this one doesn't count)</li>
-          <li>That robotics idea I scribbled on a napkin</li>
-          <li>All my Udemy courses at 2% completion</li>
+          <li>Unparalleled crisis motivation</li>
+          <li>Ability to function on questionable life choices</li>
+          <li>Emergency chocolate stash</li>
         </ul>
-        <div class="sticky-note">"I work better under pressure"</div>
+        <div class="sticky-note">"This is fine" 🔥</div>
       </div>
     </div>
 
     <!-- Overachiever Side -->
     <div class="column right">
       <div class="section">
-        <h1>About Overachiever Yash</h1>
-        <p>I'm the version that solved Bangalore's traffic problems with LEGO before most people learn to drive. Currently studying AI at UNSW because regular computer science wasn't challenging enough.</p>
-        <div class="calendar">✔️ COMP1531 Grade: <span class="highlight">92 (carried my team)</span></div>
+        <h1>Precision Yash</h1>
+        <p>The version that designed traffic solutions with LEGO before most teens learn to drive. Current life goal: make AI ethical while somehow remembering to meal prep.</p>
+        <div class="calendar">✔️ COMP1531 Outcome: <span class="highlight">92 (despite myself)</span></div>
       </div>
       <div class="section">
-        <h1>Hobbies / Interests</h1>
+        <h1>Structured Process</h1>
         <ul>
-          <li>Building award-winning bridges from popsicle sticks</li>
-          <li>Training AI models to dominate rock-paper-scissors</li>
-          <li>Volunteering at animal shelters between Olympic training</li>
+          <li>Color-coded everything (it's a problem)</li>
+          <li>Actual 5-year plan exists unironically</li>
+          <li>Can estimate time requirements ±2 minutes</li>
         </ul>
-        <div class="calendar">🗓️ Next milestone: World domination by 2027</div>
+        <div class="calendar">🗓️ Next: Solve sleep deprivation</div>
       </div>
       <div class="section">
-        <h1>Projects</h1>
+        <h1>Proven Results</h1>
         <ul>
-          <li>NIAS Research Program with IISc Professors</li>
-          <li>World Robotics Olympiad participant</li>
-          <li>Arduino-powered everything</li>
-          <li>That time I taught robotics to kids at 15</li>
+          <li>NIAS Research Program selection</li>
+          <li>World Robotics Olympiad competitor</li>
+          <li>Trained by Olympic swimmer Nisha Millet</li>
+          <li>Somehow a functional adult</li>
         </ul>
-        <div class="calendar">📈 Current project: Making this application awesome</div>
+        <div class="calendar">📈 Current project: Balancing these opposites</div>
       </div>
     </div>
   </div>
 
   <script>
     const modal = document.getElementById('welcomeModal');
+    const explanationScreen = document.getElementById('explanationScreen');
     const mainContent = document.getElementById('mainContent');
     const enterBtn = document.getElementById('enterBtn');
+    const continueBtn = document.getElementById('continueBtn');
 
-    // Hide main content initially
+    // Hide content initially
     mainContent.style.display = 'none';
+    explanationScreen.style.display = 'none';
 
     enterBtn.addEventListener('click', () => {
       modal.style.display = 'none';
+      explanationScreen.style.display = 'flex';
+    });
+
+    continueBtn.addEventListener('click', () => {
+      explanationScreen.style.display = 'none';
       mainContent.style.display = 'flex';
       document.body.style.overflow = 'auto';
     });
 
     function showContent(contentType) {
-      // This would show different content based on sidebar clicks
-      alert(`You clicked on ${contentType}! Normally this would show more details, but I'm keeping this application simple for now. Check out my resume for full details!`);
+      // These would show detailed content in a full implementation
+      const messages = {
+        'procrastination': "My secret? Transforming panic into productivity. The same adrenaline that makes me forget deadlines for weeks suddenly enables 12-hour coding sprints.",
+        'robotics': "From LEGO traffic solutions to teaching kids robotics at 15 - my structured side builds what my chaotic side dreams up.",
+        'swimming': "Olympic-level discipline meets last-minute training. Somehow this contradiction produces medals.",
+        '1531': "The miracle of scoring 92 in a group project while being constitutionally opposed to starting early.",
+        'nias': "How my scattered creativity and analytical rigor combined to impress IISc professors.",
+        'wro': "Competitive coding with LEGO robots - where precision meets creative problem-solving.",
+        'animals': "The compassionate volunteer who's late to everything except feeding rescue dogs.",
+        'kumon': "Math whiz who can solve complex problems but still counts on fingers sometimes."
+      };
+      alert(messages[contentType] || "This would normally show detailed content about how my opposites synergize!");
     }
   </script>
 </body>
