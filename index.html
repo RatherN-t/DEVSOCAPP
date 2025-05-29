@@ -93,19 +93,20 @@
       margin-top: 10px;
     }
 
-    /* Popup modal styles */
+    /* Popup modal styles with blurred background */
     #welcomeModal {
       position: fixed;
       inset: 0;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.5); /* Dim background */
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      backdrop-filter: blur(10px); /* Blurs the background */
     }
 
     #welcomeContent {
-      background: white;
+      background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
       padding: 30px 40px;
       border-radius: 15px;
       max-width: 400px;
@@ -142,7 +143,7 @@
   </style>
 </head>
 <body>
-  <!-- Popup Modal -->
+  <!-- Popup Modal with blurred background -->
   <div id="welcomeModal">
     <div id="welcomeContent">
       <h2>Welcome to my profile website!</h2>
