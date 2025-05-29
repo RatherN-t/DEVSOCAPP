@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Opposites Attract</title>
+  <title>Yash's Opposite Worlds</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     body {
@@ -27,10 +27,11 @@
     }
 
     .notion-sidebar-header h1 {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       margin: 5px 0 15px;
       color: #37352f;
+      padding-left: 8px;
     }
 
     .notion-sidebar-section {
@@ -44,6 +45,7 @@
       letter-spacing: 0.5px;
       color: #5a5a5a;
       margin: 0 0 8px 0;
+      padding-left: 8px;
     }
 
     .notion-sidebar-section ul {
@@ -141,7 +143,13 @@
       margin-top: 10px;
     }
 
-    /* Popup modal styles with blurred background */
+    .highlight {
+      background-color: #d4edff;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    /* Popup modal styles */
     #welcomeModal {
       position: fixed;
       inset: 0;
@@ -154,7 +162,7 @@
     }
 
     #welcomeContent {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       padding: 30px 40px;
       border-radius: 15px;
       max-width: 400px;
@@ -220,37 +228,37 @@
   </style>
 </head>
 <body>
-  <!-- Popup Modal with blurred background -->
+  <!-- Popup Modal -->
   <div id="welcomeModal">
     <div id="welcomeContent">
-      <h2>Welcome to my profile website!</h2>
-      <p>This site explores my two opposite sides: the procrastinator who leaves everything to the last minute, and the overachiever who plans everything weeks in advance.</p>
-      <button id="enterBtn">Enter Site</button>
+      <h2>Welcome to Yash's Opposite Worlds!</h2>
+      <p>This site explores my two opposite sides: the procrastinator who leaves everything to the last minute, and the overachiever who builds traffic-solving robots before breakfast.</p>
+      <button id="enterBtn">Enter My Brain</button>
     </div>
   </div>
 
   <!-- Notion Sidebar -->
   <div class="notion-sidebar">
     <div class="notion-sidebar-header">
-      <h1>Acme Home</h1>
+      <h1>Yash's Portfolio</h1>
     </div>
     <div class="notion-sidebar-content">
       <div class="notion-sidebar-section">
-        <h2>Team</h2>
+        <h2>Superpowers</h2>
         <ul>
-          <li>What's New</li>
-          <li>Mission, Vision, Values</li>
-          <li>Company Goals - 2019</li>
-          <li>Employee Directory</li>
+          <li onclick="showContent('robotics')">Robotics Wizardry</li>
+          <li onclick="showContent('swimming')">Olympic-Level Swimming</li>
+          <li onclick="showContent('comp1531')">Surviving Group Projects</li>
+          <li onclick="showContent('animals')">Dog Whisperer Mode</li>
         </ul>
       </div>
       <div class="notion-sidebar-section">
-        <h2>Policies</h2>
+        <h2>Achievements</h2>
         <ul>
-          <li>Office Manual</li>
-          <li>Vacation Policy</li>
-          <li>Request Time Off</li>
-          <li>Benefits Policies</li>
+          <li onclick="showContent('nias')">NIAS Research Program</li>
+          <li onclick="showContent('wro')">World Robotics Olympiad</li>
+          <li onclick="showContent('kumon')">Math Superhuman</li>
+          <li onclick="showContent('gavel')">Public Speaking Champ</li>
         </ul>
       </div>
     </div>
@@ -261,54 +269,55 @@
     <!-- Procrastinator Side -->
     <div class="column left">
       <div class="section">
-        <h1>About Me</h1>
-        <p>I'm the version of you that waits until the last possible moment to start anything. My browser has 47 tabs open, all "important" things I'll get to eventually.</p>
-        <div class="sticky-note">TODO: Fill this out better later 😅</div>
+        <h1>About Procrastinator Yash</h1>
+        <p>I'm the version that waits until 11:59 PM to start assignments, then discovers the submission portal closed at 11:55. My browser has 47 tabs open, all "important" things I'll get to eventually.</p>
+        <div class="sticky-note">TODO: Update this bio... later</div>
       </div>
       <div class="section">
         <h1>Hobbies / Interests</h1>
         <ul>
-          <li>Binge-watching YouTube at 2AM</li>
-          <li>Starting side projects and never finishing</li>
-          <li>Staring at the ceiling thinking about productivity</li>
+          <li>Starting Coursera courses and stopping after Week 1</li>
+          <li>Rewriting my to-do lists instead of doing the tasks</li>
+          <li>"Researching productivity methods" (aka watching YouTube)</li>
         </ul>
-        <div class="banner">Deadline: Yesterday</div>
+        <div class="banner">COMP1531 Due: Yesterday</div>
       </div>
       <div class="section">
         <h1>Projects</h1>
         <ul>
-          <li>Half-built portfolio</li>
-          <li>Idea for a billion-dollar app... still in Notes</li>
-          <li>That online course I bought 3 months ago</li>
+          <li>Half-built portfolio website (this one doesn't count)</li>
+          <li>That robotics idea I scribbled on a napkin</li>
+          <li>All my Udemy courses at 2% completion</li>
         </ul>
-        <div class="sticky-note">"Will finish eventually"™</div>
+        <div class="sticky-note">"I work better under pressure"</div>
       </div>
     </div>
 
     <!-- Overachiever Side -->
     <div class="column right">
       <div class="section">
-        <h1>About Me</h1>
-        <p>I'm the hyper-organized version that plans everything weeks in advance. My calendar is color-coded and I actually wake up when my first alarm goes off.</p>
-        <div class="calendar">✔️ Submitted at 11:59 (but AM)</div>
+        <h1>About Overachiever Yash</h1>
+        <p>I'm the version that solved Bangalore's traffic problems with LEGO before most people learn to drive. Currently studying AI at UNSW because regular computer science wasn't challenging enough.</p>
+        <div class="calendar">✔️ COMP1531 Grade: <span class="highlight">92 (carried my team)</span></div>
       </div>
       <div class="section">
         <h1>Hobbies / Interests</h1>
         <ul>
-          <li>Color-coding Notion pages</li>
-          <li>Optimizing workflows for fun</li>
-          <li>Productivity YouTube + Pomodoro</li>
+          <li>Building award-winning bridges from popsicle sticks</li>
+          <li>Training AI models to dominate rock-paper-scissors</li>
+          <li>Volunteering at animal shelters between Olympic training</li>
         </ul>
-        <div class="calendar">🗓️ Weekly review: Completed</div>
+        <div class="calendar">🗓️ Next milestone: World domination by 2027</div>
       </div>
       <div class="section">
         <h1>Projects</h1>
         <ul>
-          <li>Finished full-stack portfolio</li>
-          <li>Organized open source contributions</li>
-          <li>Published blog on efficiency tips</li>
+          <li>NIAS Research Program with IISc Professors</li>
+          <li>World Robotics Olympiad participant</li>
+          <li>Arduino-powered everything</li>
+          <li>That time I taught robotics to kids at 15</li>
         </ul>
-        <div class="calendar">📈 Metrics updated weekly</div>
+        <div class="calendar">📈 Current project: Making this application awesome</div>
       </div>
     </div>
   </div>
@@ -326,6 +335,11 @@
       mainContent.style.display = 'flex';
       document.body.style.overflow = 'auto';
     });
+
+    function showContent(contentType) {
+      // This would show different content based on sidebar clicks
+      alert(`You clicked on ${contentType}! Normally this would show more details, but I'm keeping this application simple for now. Check out my resume for full details!`);
+    }
   </script>
 </body>
 </html>
