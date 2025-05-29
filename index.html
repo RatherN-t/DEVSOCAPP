@@ -2,95 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Procrastinator vs Overachiever</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Opposites Attract</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
       display: flex;
-      height: 100vh;
+      min-height: 100vh;
     }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
     .column {
       width: 50%;
-      padding: 2rem;
+      padding: 40px;
       box-sizing: border-box;
-      overflow-y: scroll;
-      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
+
     .left {
-      background: #fdf6e3;
-      border-right: 2px solid #ddd;
+      background-color: #fff8e7;
+      border-right: 1px solid #ddd;
     }
+
     .right {
-      background: #eefcf2;
+      background-color: #e7fff2;
     }
+
     h1 {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
     }
+
     .section {
-      margin-bottom: 2rem;
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      position: relative;
     }
-    .sticky {
-      background: #fffa9e;
-      padding: 0.5rem;
-      margin: 0.3rem 0;
-      border-left: 4px solid #ffcb05;
-    }
-    .calendar {
-      background: #d1f7d6;
-      padding: 0.5rem;
-      margin: 0.3rem 0;
-      border-left: 4px solid #2ecc71;
-    }
-    .deadline {
-      color: #e74c3c;
-      font-weight: bold;
-    }
-    .trophy {
-      color: #f1c40f;
+
+    .left .section::before {
+      content: "🕑";
+      position: absolute;
+      top: 20px;
+      right: 20px;
       font-size: 1.2rem;
+    }
+
+    .right .section::before {
+      content: "🏆";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.2rem;
+    }
+
+    .sticky-note {
+      background-color: #fff176;
+      padding: 10px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+
+    .calendar {
+      font-size: 0.9rem;
+      color: #008c6f;
+      margin-top: 10px;
+    }
+
+    .banner {
+      background-color: #ffe0e0;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      display: inline-block;
+      border-radius: 6px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="column left">
-    <h1>Procrastinator Mode</h1>
-    <div class="section">
-      <h2>About Me</h2>
-      <div class="sticky">Write website later</div>
-      <div class="sticky">Fix resume maybe?</div>
+  <div class="container">
+    <!-- Procrastinator Side -->
+    <div class="column left">
+      <div class="section">
+        <h1>About Me</h1>
+        <p>[You write this part]</p>
+        <div class="sticky-note">TODO: Fill this out later 😅</div>
+      </div>
+      <div class="section">
+        <h1>Hobbies / Interests</h1>
+        <ul>
+          <li>Binge-watching YouTube at 2AM</li>
+          <li>Starting side projects and never finishing</li>
+          <li>Staring at the ceiling thinking about productivity</li>
+        </ul>
+        <div class="banner">Deadline: Yesterday</div>
+      </div>
+      <div class="section">
+        <h1>Projects</h1>
+        <ul>
+          <li>Half-built portfolio</li>
+          <li>Idea for a billion-dollar app... still in Notes</li>
+        </ul>
+        <div class="sticky-note">"Will finish eventually"™</div>
+      </div>
     </div>
-    <div class="section">
-      <h2>Hobbies / Interests</h2>
-      <div class="sticky">Scroll memes endlessly</div>
-      <div class="sticky">Plan productivity system (never use it)</div>
-    </div>
-    <div class="section">
-      <h2>Projects</h2>
-      <div class="sticky deadline">Deadline tomorrow... might start tonight</div>
-      <div class="sticky">"WIP" folder full of folders</div>
-    </div>
-  </div>
 
-  <div class="column right">
-    <h1>Overachiever Mode</h1>
-    <div class="section">
-      <h2>About Me</h2>
-      <div class="calendar">Updated portfolio ✔</div>
-      <div class="calendar">Weekly reflection complete ✨</div>
-    </div>
-    <div class="section">
-      <h2>Hobbies / Interests</h2>
-      <div class="calendar">Learned Figma, again ✔</div>
-      <div class="calendar">Side project #14 deployed 💻</div>
-    </div>
-    <div class="section">
-      <h2>Projects</h2>
-      <div class="calendar trophy">Hackathon Winner 🏆</div>
-      <div class="calendar">Blogged project write-up 📚</div>
+    <!-- Overachiever Side -->
+    <div class="column right">
+      <div class="section">
+        <h1>About Me</h1>
+        <p>[You write this part]</p>
+        <div class="calendar">✔️ Submitted at 11:59 (but AM)</div>
+      </div>
+      <div class="section">
+        <h1>Hobbies / Interests</h1>
+        <ul>
+          <li>Color-coding Notion pages</li>
+          <li>Optimizing workflows for fun</li>
+          <li>Productivity YouTube + Pomodoro</li>
+        </ul>
+        <div class="calendar">🗓️ Weekly review: Completed</div>
+      </div>
+      <div class="section">
+        <h1>Projects</h1>
+        <ul>
+          <li>Finished full-stack portfolio</li>
+          <li>Organized open source contributions</li>
+          <li>Published blog on efficiency tips</li>
+        </ul>
+        <div class="calendar">📈 Metrics updated weekly</div>
+      </div>
     </div>
   </div>
 </body>
