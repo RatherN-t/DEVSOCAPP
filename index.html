@@ -1,223 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Opposites Attract</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f7f7;
-      color: #333;
-      display: flex;
-      min-height: 100vh;
-      overflow: hidden; /* hide scroll while popup */
-    }
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
 
-    .container {
-      display: flex;
-      width: 100%;
-      visibility: hidden; /* hidden until popup closed */
-    }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    .column {
-      width: 50%;
-      padding: 40px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-    .left {
-      background-color: #fff8e7;
-      border-right: 1px solid #ddd;
-    }
+h1 {
+    color: #37352f;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 
-    .right {
-      background-color: #e7fff2;
-    }
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+.column {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-    .section {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      position: relative;
-    }
+.procrastinator {
+    border-left: 5px solid #ff6b6b;
+}
 
-    .left .section::before {
-      content: "🕑";
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.2rem;
-    }
+.overachiever {
+    border-left: 5px solid #51cf66;
+}
 
-    .right .section::before {
-      content: "🏆";
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.2rem;
-    }
+h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #37352f;
+}
 
-    .sticky-note {
-      background-color: #fff176;
-      padding: 10px;
-      font-size: 0.9rem;
-      margin-top: 10px;
-      display: inline-block;
-      transform: rotate(-2deg);
-    }
+h3 {
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #37352f;
+}
 
-    .calendar {
-      font-size: 0.9rem;
-      color: #008c6f;
-      margin-top: 10px;
-    }
+.section {
+    margin-bottom: 30px;
+}
 
-    .banner {
-      background-color: #ffe0e0;
-      padding: 8px 12px;
-      font-size: 0.85rem;
-      display: inline-block;
-      border-radius: 6px;
-      margin-top: 10px;
-    }
+ul {
+    padding-left: 20px;
+}
 
-    /* Popup modal styles with blurred background */
-    #welcomeModal {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Dim background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      backdrop-filter: blur(10px); /* Blurs the background */
-    }
+li {
+    margin-bottom: 8px;
+}
 
-    #welcomeContent {
-      background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-      padding: 30px 40px;
-      border-radius: 15px;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #666;
+}
 
-    #welcomeContent h2 {
-      margin-top: 0;
-      font-weight: 600;
-    }
+/* Notion-like styling */
+body {
+    background-color: #f7f6f3;
+}
 
-    #welcomeContent p {
-      margin: 20px 0;
-      font-size: 1rem;
-      color: #555;
-      min-height: 80px;
-    }
+.column {
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #e1e1e1;
+}
 
-    #enterBtn {
-      background-color: #008c6f;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    #enterBtn:hover {
-      background-color: #006a53;
-    }
-  </style>
-</head>
-<body>
-  <!-- Popup Modal with blurred background -->
-  <div id="welcomeModal">
-    <div id="welcomeContent">
-      <h2>Welcome to my profile website!</h2>
-      <p>[Explain the "Opposites Attract" theme here]</p>
-      <button id="enterBtn">Enter Site</button>
-    </div>
-  </div>
-
-  <!-- Main site content -->
-  <div class="container" id="mainContent">
-    <!-- Procrastinator Side -->
-    <div class="column left">
-      <div class="section">
-        <h1>About Me</h1>
-        <p>[You write this part]</p>
-        <div class="sticky-note">TODO: Fill this out later 😅</div>
-      </div>
-      <div class="section">
-        <h1>Hobbies / Interests</h1>
-        <ul>
-          <li>Binge-watching YouTube at 2AM</li>
-          <li>Starting side projects and never finishing</li>
-          <li>Staring at the ceiling thinking about productivity</li>
-        </ul>
-        <div class="banner">Deadline: Yesterday</div>
-      </div>
-      <div class="section">
-        <h1>Projects</h1>
-        <ul>
-          <li>Half-built portfolio</li>
-          <li>Idea for a billion-dollar app... still in Notes</li>
-        </ul>
-        <div class="sticky-note">"Will finish eventually"™</div>
-      </div>
-    </div>
-
-    <!-- Overachiever Side -->
-    <div class="column right">
-      <div class="section">
-        <h1>About Me</h1>
-        <p>[You write this part]</p>
-        <div class="calendar">✔️ Submitted at 11:59 (but AM)</div>
-      </div>
-      <div class="section">
-        <h1>Hobbies / Interests</h1>
-        <ul>
-          <li>Color-coding Notion pages</li>
-          <li>Optimizing workflows for fun</li>
-          <li>Productivity YouTube + Pomodoro</li>
-        </ul>
-        <div class="calendar">🗓️ Weekly review: Completed</div>
-      </div>
-      <div class="section">
-        <h1>Projects</h1>
-        <ul>
-          <li>Finished full-stack portfolio</li>
-          <li>Organized open source contributions</li>
-          <li>Published blog on efficiency tips</li>
-        </ul>
-        <div class="calendar">📈 Metrics updated weekly</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById('welcomeModal');
-    const mainContent = document.getElementById('mainContent');
-    const enterBtn = document.getElementById('enterBtn');
-
-    enterBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      mainContent.style.visibility = 'visible';
-      document.body.style.overflow = 'auto'; // allow scrolling again
-    });
-  </script>
-</body>
-</html>
+h1, h2, h3 {
+    font-weight: 600;
+}
