@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Opposites Attract</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
@@ -13,11 +13,13 @@
       color: #333;
       display: flex;
       min-height: 100vh;
+      overflow: hidden; /* hide scroll while popup */
     }
 
     .container {
       display: flex;
       width: 100%;
+      visibility: hidden; /* hidden until popup closed */
     }
 
     .column {
@@ -90,10 +92,67 @@
       border-radius: 6px;
       margin-top: 10px;
     }
+
+    /* Popup modal styles */
+    #welcomeModal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #welcomeContent {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    #welcomeContent h2 {
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    #welcomeContent p {
+      margin: 20px 0;
+      font-size: 1rem;
+      color: #555;
+      min-height: 80px;
+    }
+
+    #enterBtn {
+      background-color: #008c6f;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #enterBtn:hover {
+      background-color: #006a53;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- Popup Modal -->
+  <div id="welcomeModal">
+    <div id="welcomeContent">
+      <h2>Welcome to my profile website!</h2>
+      <p>[Explain the "Opposites Attract" theme here]</p>
+      <button id="enterBtn">Enter Site</button>
+    </div>
+  </div>
+
+  <!-- Main site content -->
+  <div class="container" id="mainContent">
     <!-- Procrastinator Side -->
     <div class="column left">
       <div class="section">
@@ -147,5 +206,17 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const modal = document.getElementById('welcomeModal');
+    const mainContent = document.getElementById('mainContent');
+    const enterBtn = document.getElementById('enterBtn');
+
+    enterBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      mainContent.style.visibility = 'visible';
+      document.body.style.overflow = 'auto'; // allow scrolling again
+    });
+  </script>
 </body>
 </html>
